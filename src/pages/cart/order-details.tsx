@@ -60,7 +60,7 @@ const OrderDetails = () => {
   }, [dispatch, id]);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title='order payment'>
       <Container>
         <h2 className='mb-5'>Payment</h2>
 

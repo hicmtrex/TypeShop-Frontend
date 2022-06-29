@@ -43,7 +43,7 @@ const Checkout = () => {
   };
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title='checkout'>
       <Container>
         <Row>
           <Col md={8} className='mb-2'>

@@ -23,7 +23,7 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title='cart shop'>
       <Container>
         {cartItems.length === 0 ? (
           <Message>

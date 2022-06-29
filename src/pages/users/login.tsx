@@ -43,6 +43,7 @@ const Login = () => {
 
   return (
     <FormContainer
+      meta='Login your account'
       image='https://blog.hubspot.com/hubfs/ecommerce-1.png'
       title='Login Your Account'
     >

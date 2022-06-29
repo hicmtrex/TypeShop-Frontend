@@ -53,6 +53,7 @@ const Register = () => {
 
   return (
     <FormContainer
+      meta='register for free'
       image='https://blog.hubspot.com/hubfs/ecommerce-1.png'
       title='Register For Free'
     >

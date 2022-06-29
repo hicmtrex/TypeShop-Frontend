@@ -6,11 +6,12 @@ type FormTypes = {
   children: ReactNode;
   title: string;
   image?: string;
+  meta?: string;
 };
 
 const FormContainer = (props: FormTypes) => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title={props.meta}>
       <Container>
         <Row className=' justify-content-center py-6'>
           <Col md={6}>

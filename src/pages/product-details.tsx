@@ -63,7 +63,7 @@ const ProductDetails = () => {
   if (loading || !product) return <p>Loading...</p>;
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title={product.name}>
       <Container>
         <Row>
           <Col md={7}>
@@ -72,7 +72,7 @@ const ProductDetails = () => {
                 className=' p-2'
                 rounded
                 src={product?.image}
-                style={{ width: '600px', height: '567px' }}
+                style={{ width: '600px', height: '100%' }}
               />
             </Card>
           </Col>

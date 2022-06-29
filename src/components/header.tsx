@@ -135,13 +135,13 @@ const Header = () => {
               </div>
               {!userInfo ? (
                 <>
-                  <div className='navbar-nav ms-lg-4'>
+                  <div className='d-flex align-items-lg-center mt-3 mt-lg-0'>
                     <Nav.Link
                       as={NavLink}
                       to='/login'
-                      className='nav-item nav-link'
+                      className='btn btn-secondary btn-sm text-white me-3 ms-5 '
                     >
-                      Sign in
+                      Login
                     </Nav.Link>
                   </div>
 
@@ -150,7 +150,7 @@ const Header = () => {
                       as={NavLink}
                       to='/register'
                       style={{ backgroundColor: '#e03a3c' }}
-                      className='btn btn-sm  text-white w-full w-lg-auto '
+                      className='btn btn-sm text-white  ms-xs-3 '
                     >
                       Register
                     </Nav.Link>

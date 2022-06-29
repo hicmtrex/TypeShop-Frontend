@@ -86,7 +86,7 @@ const Profile = () => {
   const cols = ['Order id', 'Price', 'Address', 'Paid', 'Date', 'Options'];
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title={`${user?.name} profile`}>
       <Container>
         {loading || !user || orderLoading ? (
           <Loader />
