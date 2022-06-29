@@ -13,5 +13,5 @@ export const getDate = (date: Date) => {
 
 export const baseUrl =
   import.meta.env.VITE_MODE === 'development'
-    ? 'https://type-shop.herokuapp.com'
-    : 'http://localhost:5000';
+    ? 'http://localhost:5000'
+    : 'https://type-shop.herokuapp.com';
