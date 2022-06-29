@@ -1,0 +1,106 @@
+@import '@webpixels/css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #f1f1f1 !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.rating span {
+  margin: 0 2px;
+}
+
+#main {
+  min-height: 80vh;
+}
+
+.form-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.carsouel__item img {
+  height: 50rem;
+}
+
+.nav-link span {
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.nav-link span:hover {
+  font-weight: bold;
+  color: #e03a3c !important;
+}
+
+.dropdown-item {
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  background-color: #e03a3c !important;
+}
+
+@media (max-height: 760px) {
+  .carsouel__item img {
+    height: 25rem;
+  }
+}
+
+section {
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.icons__cart {
+  transition: all 0.3 ease;
+}
+
+.icons__cart:active {
+  transform: scale(1.1);
+}
+
+.stripe__container button {
+  width: 100%;
+}
+
+/* Brand */
+.brand-img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: 0.5s;
+  height: 70px;
+  width: 120px;
+}
+
+@media (max-height: 760px) {
+  .brand-img {
+    height: 40px;
+    width: 80px;
+  }
+}
+
+.brand-img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Carousel Brand */
+.tempaltemo-carousel .h1 {
+  font-size: 0.5em !important;
+  color: #000 !important;
+}
