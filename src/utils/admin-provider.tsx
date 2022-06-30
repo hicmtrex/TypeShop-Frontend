@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAppSelector } from '../redux';
 
@@ -13,9 +13,9 @@ const AdminProvider = ({ children }: Props) => {
     return <>{children}</>;
   } else {
     return (
-      <>
+      <Fragment>
         <Navigate to={'/'} replace />
-      </>
+      </Fragment>
     );
   }
 };

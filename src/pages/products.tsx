@@ -5,11 +5,10 @@ import {
   Col,
   Card,
   Form,
-  ButtonGroup,
   ListGroup,
   FormSelect,
 } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import DefaultLayout from '../components/layouts/default-layout';
 import ProductCard from '../components/product-card';
 import Paginate from '../components/UI/paginate';
@@ -18,9 +17,6 @@ import { getFilterProducts } from '../redux/products/search-list';
 
 const Products = () => {
   const params = useParams();
-  const navigate = useNavigate();
-  const [genderShow, setGenderShow] = useState<boolean>(false);
-  const [genderBrand, setGenderBrand] = useState<boolean>(false);
   const { products, categories, brands, page, pages } = useAppSelector(
     (state) => state.productFilter
   );

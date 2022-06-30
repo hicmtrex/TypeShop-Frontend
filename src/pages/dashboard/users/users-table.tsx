@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Button, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { FaCheck, FaTimes, FaTrash } from 'react-icons/fa';
-
 import DashboardLayout from '../../../components/layouts/dashboard-layout';
 import Loader from '../../../components/UI/loader';
 import TableContainer from '../../../components/UI/table-contrainer';
@@ -12,8 +11,7 @@ import authAxios from '../../../utils/auth-axios';
 import { setError } from '../../../utils/error';
 import { getDate } from '../../../utils/helper';
 
-// Then, use it in a component.
-function UserTable() {
+const UserTable = () => {
   const dispatch = useAppDispatch();
   const { users, loading } = useAppSelector((state) => state.userList);
 
@@ -102,6 +100,6 @@ function UserTable() {
       )}
     </DashboardLayout>
   );
-}
+};
 
 export default UserTable;

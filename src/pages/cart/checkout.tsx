@@ -5,7 +5,6 @@ import DefaultLayout from '../../components/layouts/default-layout';
 import RedButton from '../../components/UI/red-button';
 import { useAppDispatch, useAppSelector } from '../../redux';
 import { reset } from '../../redux/cart/cart-slice';
-
 import authAxios from '../../utils/auth-axios';
 import { setError } from '../../utils/error';
 import { formatCurrencry } from '../../utils/helper';
