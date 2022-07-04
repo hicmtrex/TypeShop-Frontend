@@ -16,27 +16,19 @@ const OrderDetails = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams();
 
-  if (!order)
-    return (
-      <DefaultLayout>
-        <Loader />
-      </DefaultLayout>
-    );
-
-  const itemsPrice: number = order?.cartItems.reduce(
+  const itemsPrice: number | undefined = order?.cartItems.reduce(
     (acc, item) => acc + item.qty * item.price,
     0
   );
   const navigate = useNavigate();
-  const taxPrice: number = itemsPrice * 0.1;
 
-  const shippingPrice: number = itemsPrice >= 200 ? 0 : 30;
+  const taxPrice = itemsPrice ? itemsPrice * 0.1 : 0;
 
-  const totalPrice: number = itemsPrice + taxPrice + shippingPrice;
+  const shippingPrice = itemsPrice ? (itemsPrice >= 200 ? 0 : 30) : 0;
+
+  const totalPrice = itemsPrice && itemsPrice + taxPrice + shippingPrice;
 
   const handlePayment = (token: any) => {
-    const isPaid = true;
-
     authAxios
       .post('/orders/stripe', {
         token: token.id,
@@ -63,89 +55,96 @@ const OrderDetails = () => {
       <Container>
         <h2 className='mb-5'>Payment</h2>
 
-        <Row>
-          <Col md={8} className='mb-sm-3 mb-2'>
-            <Card>
-              <Card.Body>
-                <h4>Order Summery</h4>
-                <ListGroup variant='flush'>
-                  {order?.cartItems.map((item) => (
-                    <ListGroup.Item key={item._id}>
-                      <Row>
-                        <Col md={2}>
-                          <Image
-                            src={item.image}
-                            roundedCircle
-                            className='h-16 w-16'
-                          />
-                        </Col>
-                        <Col md={6} className='d-none d-lg-block'>
-                          {item.name}
-                        </Col>
-                        <Col>{item?.qty}</Col>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Row>
+            <Col md={8} className='mb-sm-3 mb-2'>
+              <Card>
+                <Card.Body>
+                  <h4>Order Summery</h4>
+                  <ListGroup variant='flush'>
+                    {order?.cartItems.map((item) => (
+                      <ListGroup.Item key={item._id}>
+                        <Row>
+                          <Col md={2}>
+                            <Image
+                              src={item.image}
+                              roundedCircle
+                              className='h-16 w-16'
+                            />
+                          </Col>
+                          <Col md={6} className='d-none d-lg-block'>
+                            {item.name}
+                          </Col>
+                          <Col>{item?.qty}</Col>
 
-                        <Col>{formatCurrencry(item.price * item.qty)}</Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <h2 className='text-center'>Payment</h2>
-                <ListGroup variant='flush'>
-                  <ListGroup.Item as='h2'>
-                    SubTotal (
-                    {order?.cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                    item
-                  </ListGroup.Item>
-                  <ListGroup.Item className=' d-flex justify-content-between align-items-center'>
-                    <span>Total Price :</span>
-                    <span>
-                      {formatCurrencry(
-                        order?.cartItems.reduce(
-                          (acc, item) => acc + item.price * item.qty,
-                          0
-                        )
+                          <Col>{formatCurrencry(item.price * item.qty)}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                <Card.Body>
+                  <h2 className='text-center'>Payment</h2>
+                  <ListGroup variant='flush'>
+                    <ListGroup.Item as='h2'>
+                      SubTotal (
+                      {order?.cartItems.reduce(
+                        (acc, item) => acc + item.qty,
+                        0
                       )}
-                    </span>
-                  </ListGroup.Item>
-                  <ListGroup.Item className=' d-flex justify-content-between align-items-center'>
-                    <span>Tax Price</span>
-                    <span>{formatCurrencry(taxPrice)}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item className=' d-flex justify-content-between align-items-center'>
-                    <span>Shipping Price</span>
-                    <span>{formatCurrencry(shippingPrice)}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <h5 className=' d-flex justify-content-between align-items-center'>
-                      <span>Total Price</span>
-                      <span>{formatCurrencry(totalPrice)}</span>
-                    </h5>
-                  </ListGroup.Item>
-                  {!order?.isPaid && (
-                    <ListGroup.Item className='stripe__container'>
-                      <Stripe
-                        currency='USD'
-                        description={`Total Price ${formatCurrencry(
-                          order?.totalPrice
-                        )}`}
-                        name='Type Shop'
-                        image='/LogoMakr-6Tit9e.png'
-                        stripeKey={import.meta.env.VITE_API_STRIPE}
-                        token={tokenHandler}
-                      />
+                      ) item
                     </ListGroup.Item>
-                  )}
-                </ListGroup>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+                    <ListGroup.Item className=' d-flex justify-content-between align-items-center'>
+                      <span>Total Price :</span>
+                      <span>
+                        {formatCurrencry(
+                          order?.cartItems.reduce(
+                            (acc, item) => acc + item.price * item.qty,
+                            0
+                          )
+                        )}
+                      </span>
+                    </ListGroup.Item>
+                    <ListGroup.Item className=' d-flex justify-content-between align-items-center'>
+                      <span>Tax Price</span>
+                      <span>{formatCurrencry(taxPrice)}</span>
+                    </ListGroup.Item>
+                    <ListGroup.Item className=' d-flex justify-content-between align-items-center'>
+                      <span>Shipping Price</span>
+                      <span>{formatCurrencry(shippingPrice)}</span>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <h5 className=' d-flex justify-content-between align-items-center'>
+                        <span>Total Price</span>
+                        <span>{formatCurrencry(totalPrice)}</span>
+                      </h5>
+                    </ListGroup.Item>
+                    {!order?.isPaid && (
+                      <ListGroup.Item className='stripe__container'>
+                        <Stripe
+                          currency='USD'
+                          description={`Total Price ${formatCurrencry(
+                            order?.totalPrice
+                          )}`}
+                          name='Type Shop'
+                          image='/LogoMakr-6Tit9e.png'
+                          stripeKey={import.meta.env.VITE_API_STRIPE}
+                          token={tokenHandler}
+                        />
+                      </ListGroup.Item>
+                    )}
+                  </ListGroup>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        )}
       </Container>
     </DefaultLayout>
   );
