@@ -1,4 +1,4 @@
-import { Image } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import './footer.css';
 
@@ -6,9 +6,9 @@ const DownFooter = () => {
   return (
     <footer id='footer' className='mt-auto'>
       <div className='footer-top'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-3 col-md-6 footer-contact'>
+        <Container>
+          <Row>
+            <Col lg={3} md={6} xs={12} className=' footer-contact'>
               <h3>
                 <Image width={100} src='/LogoMakr-4g0P6C.png' alt='' />
               </h3>
@@ -25,8 +25,8 @@ const DownFooter = () => {
                 <strong>Email:</strong> typeshop@me.com
                 <br />
               </p>
-            </div>
-            <div className='col-lg-2 col-md-6 footer-links'>
+            </Col>
+            <Col lg={2} md={6} xs={6} className=' footer-links'>
               <h4>Useful Links</h4>
               <ul>
                 <li>
@@ -47,8 +47,8 @@ const DownFooter = () => {
                   <a href='#'>Privacy policy</a>
                 </li>
               </ul>
-            </div>
-            <div className='col-lg-3 col-md-6 footer-links'>
+            </Col>
+            <Col lg={3} md={6} xs={6} className='footer-links'>
               <h4>Our Services</h4>
               <ul>
                 <li>
@@ -72,8 +72,8 @@ const DownFooter = () => {
                   <a href='#'>Graphic Design</a>
                 </li>
               </ul>
-            </div>
-            <div className='col-lg-4 col-md-6 footer-newsletter'>
+            </Col>
+            <Col lg={4} md={6} className='footer-newsletter'>
               <h4>Join Our Newsletter</h4>
               <p>
                 Tamen quem nulla quae legam multos aute sint culpa legam noster
@@ -88,9 +88,9 @@ const DownFooter = () => {
                 />
                 <input type='submit' defaultValue='Subscribe' />
               </form>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     </footer>
   );
