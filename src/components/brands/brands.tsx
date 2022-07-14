@@ -127,48 +127,6 @@ const Brands = () => {
                       </div>
                     </div>
                     {/*End Second slide*/}
-                    {/*Third slide*/}
-                    <div className='carousel-item'>
-                      <div className='row'>
-                        <div className='col-3 p-md-5'>
-                          <a href='#'>
-                            <img
-                              className='img-fluid brand-img'
-                              src='/images/brand_01.png'
-                              alt='Brand Logo'
-                            />
-                          </a>
-                        </div>
-                        <div className='col-3 p-md-5'>
-                          <a href='#'>
-                            <img
-                              className='img-fluid brand-img'
-                              src='/images/brand_02.png'
-                              alt='Brand Logo'
-                            />
-                          </a>
-                        </div>
-                        <div className='col-3 p-md-5'>
-                          <a href='#'>
-                            <img
-                              className='img-fluid brand-img'
-                              src='/images/brand_03.png'
-                              alt='Brand Logo'
-                            />
-                          </a>
-                        </div>
-                        <div className='col-3 p-md-5'>
-                          <a href='#'>
-                            <img
-                              className='img-fluid brand-img'
-                              src='/images/brand_04.png'
-                              alt='Brand Logo'
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    {/*End Third slide*/}
                   </div>
                   {/*End Slides*/}
                 </div>
