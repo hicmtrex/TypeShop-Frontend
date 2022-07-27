@@ -27,9 +27,9 @@ const CartPage = () => {
       <Container>
         {cartItems.length === 0 ? (
           <Message>
-            No Products in Basket{' '}
+            Your cart is empty
             <Link to='/home' className='mx-3'>
-              Go Shop
+              Go Back
             </Link>
           </Message>
         ) : (
