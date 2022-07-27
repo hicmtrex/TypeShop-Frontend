@@ -22,7 +22,7 @@ export const getProducts = createAsyncThunk('products/list', async () => {
   try {
     const { data } = await publicAxios.get('/products');
     return data;
-  } catch (error) {
+  } catch (error: any) {
     const message = setError(error);
     toast.error(message);
   }

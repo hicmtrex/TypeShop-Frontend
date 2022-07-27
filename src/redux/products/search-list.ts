@@ -36,7 +36,7 @@ export const getFilterProducts = createAsyncThunk(
         `/products/search?page=${u.n}&brand=${u.b}&category=${u.c}&query=${u.q}`
       );
       return data;
-    } catch (error) {
+    } catch (error: any) {
       const message = setError(error);
       toast.error(message);
     }

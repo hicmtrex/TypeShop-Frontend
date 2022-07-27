@@ -36,7 +36,7 @@ const OrderDetails = () => {
       })
       .then((res) => {
         authAxios.put(`/orders/${order?._id}`).then((res) => {
-          toast.success('vous avez été payé merci 😀');
+          toast.success('you have been paid successfully🙂');
           navigate('/');
         });
       })

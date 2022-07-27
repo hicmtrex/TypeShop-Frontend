@@ -1,8 +1,11 @@
 import { Col, Container, Form, Row } from 'react-bootstrap';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../components/layouts/default-layout';
 import './contact.css';
 
 const Contact = () => {
+  const navigate = useNavigate();
   return (
     <DefaultLayout>
       <section id='contact' className='contact'>
@@ -51,9 +54,11 @@ const Contact = () => {
             </Col>
             <Col lg={6}>
               <Form
-                action='forms/contact.php'
-                method='post'
-                role='form'
+                onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+                  e.preventDefault();
+                  toast.success('Thanks for your feedback 🙂');
+                  navigate('/');
+                }}
                 className='php-email-form bg-white'
               >
                 <Row>

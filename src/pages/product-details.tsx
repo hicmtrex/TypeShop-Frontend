@@ -50,7 +50,7 @@ const ProductDetails = () => {
     authAxios
       .post(`/products/${product?._id}/reviews`, review)
       .then((res) => {
-        toast.success('thank you for the feedback');
+        toast.success('thank you for the comment 🙂');
         setRefresh((prev) => (prev = !prev));
       })
       .catch((err) => toast.error(setError(err)));
@@ -58,6 +58,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(getProductById(id));
+    window.scrollTo(0, 0);
   }, [id, dispatch, refresh]);
 
   return (
@@ -137,7 +138,7 @@ const ProductDetails = () => {
             <Col md={5}>
               <ListGroup className='bg-white p-3'>
                 <ListGroup.Item>
-                  <h3 style={{ color: '#e03a3c' }}>Feedback</h3>
+                  <h3 style={{ color: '#e03a3c' }}>Comment</h3>
                   {userInfo ? (
                     <Form onSubmit={onSubmit}>
                       <Form.Group controlId='rating'>
