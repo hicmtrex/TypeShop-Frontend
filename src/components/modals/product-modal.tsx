@@ -7,6 +7,7 @@ import authAxios from '../../utils/auth-axios';
 import toast from 'react-hot-toast';
 import { setError } from '../../utils/error';
 import { ChangeEvent, useState } from 'react';
+import { baseUrl } from '../../utils/helper';
 
 type Props = {
   show: boolean;
@@ -50,8 +51,7 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
 
       authAxios.post('/uploads/image', formData).then((res) => {
         if (res.data) {
-          console.log(`http://localhost:5000${res.data}`);
-          setImage(`http://localhost:5000${res.data}`);
+          setImage(`${baseUrl}${res.data}`);
         }
       });
     }
