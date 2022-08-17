@@ -56,7 +56,7 @@ a {
 
 @media (max-height: 760px) {
   .carsouel__item img {
-    height: 25rem;
+    height: 15rem;
   }
 }
 
