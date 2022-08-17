@@ -19,7 +19,8 @@ type FormValues = {
   description: string;
 };
 const ProductUpdate = () => {
-  const { products } = useAppSelector((state) => state.productList);
+  const { products } = useAppSelector((state) => state.productFilter);
+
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find((p) => p._id === id);
@@ -31,7 +32,7 @@ const ProductUpdate = () => {
     price: Yup.number().required(),
     description: Yup.string().required(),
   });
-
+  console.log(product);
   const {
     register,
     handleSubmit,
@@ -62,7 +63,7 @@ const ProductUpdate = () => {
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     type='text'
-                    placeholder='doe'
+                    placeholder='product name'
                     {...register('name', {
                       value: product?.name,
                     })}
@@ -74,7 +75,7 @@ const ProductUpdate = () => {
                   <Form.Label>Image</Form.Label>
                   <Form.Control
                     type='text'
-                    placeholder='doe'
+                    placeholder='image url'
                     {...register('image', {
                       value: product?.image,
                     })}

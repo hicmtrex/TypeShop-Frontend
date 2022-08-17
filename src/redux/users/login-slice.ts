@@ -37,7 +37,7 @@ export const userLogin = createAsyncThunk(
         toast.success(`Bienvenue 👏 ${res.data.name}`);
         return res.data;
       }
-    } catch (error) {
+    } catch (error: any) {
       const message = setError(error);
       toast.error(message);
       thunkAPI.rejectWithValue(message);

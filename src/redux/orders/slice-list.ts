@@ -43,7 +43,7 @@ export const getOrdersList = createAsyncThunk('orders/list', async () => {
   try {
     const { data } = await authAxios.get('/orders');
     return data;
-  } catch (error) {
+  } catch (error: any) {
     const message = setError(error);
     toast.error(message);
   }
