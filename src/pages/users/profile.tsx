@@ -88,7 +88,7 @@ const Profile = () => {
   return (
     <DefaultLayout title={`${user?.name} profile`}>
       <Container>
-        {loading || !user || orderLoading ? (
+        {loading || !user || orderLoading || !orders ? (
           <Loader />
         ) : (
           <Row>
