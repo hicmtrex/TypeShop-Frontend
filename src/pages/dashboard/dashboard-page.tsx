@@ -2,18 +2,17 @@ import { useEffect } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import DashboardLayout from '../../components/layouts/dashboard-layout';
 import { useAppDispatch, useAppSelector } from '../../redux';
-import { ordersPrice } from '../../redux/orders/slice-list';
 import { formatCurrencry } from '../../utils/helper';
 
 const DashboardPage = () => {
   const { total } = useAppSelector((state) => state.productFilter);
-  const { totalPrice } = useAppSelector((state) => state.orders);
+  const { orders } = useAppSelector((state) => state.orders);
   const { users } = useAppSelector((state) => state.userList);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(ordersPrice());
-  }, [dispatch, totalPrice]);
+  const totalPrice = orders.reduce((acc, order) => acc + order.totalPrice, 0);
+
+  // useEffect(() => {}, [dispatch]);
 
   return (
     <DashboardLayout>

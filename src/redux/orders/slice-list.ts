@@ -57,14 +57,7 @@ const getOrderPrice = createEntityAdapter<OrderSliceState>({
 export const orderListSlice = createSlice({
   name: 'orders-list',
   initialState,
-  reducers: {
-    ordersPrice: (state: OrderSliceState) => {
-      state.totalPrice = state.orders.reduce(
-        (acc, order) => acc + order?.totalPrice,
-        0
-      );
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getOrdersList.pending, (state) => {
       // Add user to the state array
@@ -79,7 +72,5 @@ export const orderListSlice = createSlice({
     });
   },
 });
-
-export const { ordersPrice } = orderListSlice.actions;
 
 export default orderListSlice;
