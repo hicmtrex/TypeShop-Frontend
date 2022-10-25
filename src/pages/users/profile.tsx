@@ -92,6 +92,7 @@ const Profile = () => {
           <Loader />
         ) : (
           <Row>
+            
             <Col lg={4} md={5} xs={12}>
               <h2>User Profile</h2>
               <Card>

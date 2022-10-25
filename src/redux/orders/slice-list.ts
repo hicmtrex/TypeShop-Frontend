@@ -60,7 +60,7 @@ export const orderListSlice = createSlice({
   reducers: {
     ordersPrice: (state: OrderSliceState) => {
       state.totalPrice = state.orders.reduce(
-        (acc, order) => acc + order.totalPrice,
+        (acc, order) => acc + order?.totalPrice,
         0
       );
     },

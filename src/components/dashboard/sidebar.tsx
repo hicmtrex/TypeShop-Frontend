@@ -11,7 +11,7 @@ const Sidebar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { userInfo } = useAppSelector((state) => state.login);
-  
+
   const onLogout = () => {
     dispatch(userLogout());
     dispatch(reset());
