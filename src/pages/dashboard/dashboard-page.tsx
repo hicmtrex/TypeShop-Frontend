@@ -13,6 +13,7 @@ const DashboardPage = () => {
 
   const getTotalCost = () => {
     let total = 0;
+    if (!orders) return 500.3;
     orders.map((item: any) => {
       if (!item) return;
       total += item.totalPrice;
