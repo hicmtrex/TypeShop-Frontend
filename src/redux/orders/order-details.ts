@@ -22,7 +22,7 @@ export const getOrderById = createAsyncThunk(
     try {
       const { data } = await authAxios.get(`/orders/${id}`);
       return data;
-    } catch (error) {
+    } catch (error: any) {
       const message = setError(error);
       toast.error(message);
     }

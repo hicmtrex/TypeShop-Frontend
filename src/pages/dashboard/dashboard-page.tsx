@@ -11,10 +11,16 @@ const DashboardPage = () => {
   const { users } = useAppSelector((state) => state.userList);
   const dispatch = useAppDispatch();
 
-  const totalPrice = orders.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.totalPrice,
-    0
-  );
+  const getTotalCost = () => {
+    let total = 0;
+    orders.map((item: any) => {
+      if (!item) return;
+      total += item.totalPrice;
+    });
+    return total;
+  };
+
+  const totalPrice = getTotalCost();
 
   useEffect(() => {
     dispatch(getOrdersList());

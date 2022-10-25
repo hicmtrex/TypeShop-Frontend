@@ -35,7 +35,7 @@ export const getUserOrder = createAsyncThunk('users/orders', async () => {
   try {
     const { data } = await authAxios.get('/orders/orders-user');
     return data;
-  } catch (error) {
+  } catch (error: any) {
     const message = setError(error);
     toast.error(message);
   }
