@@ -14,4 +14,4 @@ export const getDate = (date: Date) => {
 export const baseUrl =
   import.meta.env.VITE_MODE === 'development'
     ? 'http://localhost:5000'
-    : 'https://type-shop.herokuapp.com';
+    : 'https://typeshop-server.onrender.com';
