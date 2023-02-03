@@ -3,7 +3,6 @@ import { Button, Image, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
-import DashboardLayout from '../../../components/layouts/dashboard-layout';
 import ProductModal from '../../../components/modals/product-modal';
 import Loader from '../../../components/UI/loader';
 import Paginate from '../../../components/UI/paginate';
@@ -55,7 +54,7 @@ function ProductTable() {
   }, [dispatch, pageNumber, refresh]);
 
   return (
-    <DashboardLayout>
+    <>
       {loading ? (
         <Loader />
       ) : (
@@ -105,7 +104,7 @@ function ProductTable() {
       )}
       <Paginate pages={pages} page={page} isAdmin={true} keyword={''} />
       <ProductModal setRefresh={setRefresh} show={show} handleClose={onClose} />
-    </DashboardLayout>
+    </>
   );
 }
 

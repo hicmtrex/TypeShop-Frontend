@@ -18,6 +18,14 @@ import OrderDetails from './pages/cart/order-details';
 import Products from './pages/products';
 import AuthProvider from './utils/auth-provider';
 import AdminProvider from './utils/admin-provider';
+import { lazy, Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import Loader from './components/UI/loader';
+import ErrorFallback from './components/UI/error-fallback';
+
+const DashboardLayout = lazy(
+  () => import('./components/layouts/dashboard-layout')
+);
 
 const App = () => {
   return (
@@ -63,54 +71,28 @@ const App = () => {
             </AuthProvider>
           }
         />
+
         <Route
           path='/dashboard'
           element={
-            <AdminProvider>
-              <DashboardPage />
-            </AdminProvider>
+            <ErrorBoundary
+              onReset={() => location.href === '/'}
+              FallbackComponent={ErrorFallback}
+            >
+              <Suspense fallback={<Loader />}>
+                <DashboardLayout />
+              </Suspense>
+            </ErrorBoundary>
           }
-        />
-        <Route
-          path='/dashboard/product-list'
-          element={
-            <AdminProvider>
-              <ProductTable />
-            </AdminProvider>
-          }
-        />
-        <Route
-          path='/dashboard/product-list/:pageNumber'
-          element={
-            <AdminProvider>
-              <ProductTable />
-            </AdminProvider>
-          }
-        />
-        <Route
-          path='/dashboard/user-list'
-          element={
-            <AdminProvider>
-              <UserTable />
-            </AdminProvider>
-          }
-        />
-        <Route
-          path='/dashboard/orders-list'
-          element={
-            <AdminProvider>
-              <OrdersTable />
-            </AdminProvider>
-          }
-        />
-        <Route
-          path='/dashboard/product-edit/:id'
-          element={
-            <AdminProvider>
-              <ProductUpdate />
-            </AdminProvider>
-          }
-        />
+        >
+          <Route index element={<DashboardPage />} />
+          <Route path='product-list' element={<ProductTable />} />
+          <Route path='product-list/:pageNumber' element={<ProductTable />} />
+          <Route path='user-list' element={<UserTable />} />
+          <Route path='orders-list' element={<OrdersTable />} />
+          <Route path='product-edit/:id' element={<ProductUpdate />} />
+        </Route>
+
         <Route path='/contact' element={<Contact />} />
       </Routes>
       <Toaster position='top-center' reverseOrder={false} />

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Button, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { FaCheck, FaTimes, FaTrash } from 'react-icons/fa';
-import DashboardLayout from '../../../components/layouts/dashboard-layout';
 import Loader from '../../../components/UI/loader';
 import TableContainer from '../../../components/UI/table-contrainer';
 import { useAppDispatch, useAppSelector } from '../../../redux';
@@ -41,7 +40,7 @@ function OrdersTable() {
   }, [dispatch, refresh]);
 
   return (
-    <DashboardLayout>
+    <>
       {loading ? (
         <Loader />
       ) : (
@@ -78,7 +77,7 @@ function OrdersTable() {
           </TableContainer>
         </Row>
       )}
-    </DashboardLayout>
+    </>
   );
 }
 

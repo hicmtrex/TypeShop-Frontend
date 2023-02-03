@@ -1,11 +1,9 @@
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
-import FormContainer from '../../../components/UI/form-container';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useAppSelector } from '../../../redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import DashboardLayout from '../../../components/layouts/dashboard-layout';
 import authAxios from '../../../utils/auth-axios';
 import toast from 'react-hot-toast';
 import { setError } from '../../../utils/error';
@@ -52,7 +50,7 @@ const ProductUpdate = () => {
   };
 
   return (
-    <DashboardLayout>
+    <>
       <Row className=' justify-content-center py-6'>
         <Col lg={5} md={6}>
           <Card>
@@ -142,7 +140,7 @@ const ProductUpdate = () => {
           </Card>
         </Col>
       </Row>
-    </DashboardLayout>
+    </>
   );
 };
 
