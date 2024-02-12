@@ -1,6 +1,6 @@
 const CURRENCRY_FORMATTER = new Intl.NumberFormat(undefined, {
-  currency: 'USD',
-  style: 'currency',
+  currency: "USD",
+  style: "currency",
 });
 
 export const formatCurrencry = (number: any) => {
@@ -8,10 +8,7 @@ export const formatCurrencry = (number: any) => {
 };
 
 export const getDate = (date: Date) => {
-  return new Date(date).toLocaleDateString('en');
+  return new Date(date).toLocaleDateString("en");
 };
 
-export const baseUrl =
-  import.meta.env.VITE_MODE === 'development'
-    ? 'http://localhost:5000'
-    : 'https://typeshop-server.onrender.com';
+export const baseUrl = import.meta.env.VITE_API_URL;
