@@ -2,11 +2,11 @@ repo_name: hicmtrex/TypeShop-Frontend
 report_id: ffe31342850035f1657c88fc916329c4
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-21T15:41:03+00:00'
+timestamp: '2024-01-05T08:17:44+00:00'
 requested_by: hicmtrex
 provider: github
 branch: main
-detected_tools_count: 25
+detected_tools_count: 26
 tools:
 - name: CSS 3
   description: The latest evolution of the Cascading Style Sheets language
@@ -16,6 +16,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -26,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend/blob/main/package.json
   detection_source: package.json
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-06-29 16:20:27.000000000 Z
@@ -38,6 +40,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend
   detection_source: Repo Metadata
 - name: Bootstrap
   description: Simple and flexible HTML, CSS, and JS for popular UI components and
@@ -117,6 +120,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend
   detection_source: Repo Metadata
 - name: Vite
   description: Native-ESM powered web dev build tool
@@ -127,6 +131,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: JS Build Tools / JS Task Runners
   image_url: https://img.stackshare.io/service/21547/default_1aeac791cde11ff66cc0b20dcc6144eeb185c905.png
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend/blob/main/package.json
   detection_source: package.json
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-06-29 16:20:27.000000000 Z
@@ -138,6 +143,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend/blob/main/package.json
   detection_source: package.json
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-06-29 16:20:27.000000000 Z
@@ -160,6 +166,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/10756/339286.png
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend/blob/main/package.json
   detection_source: package.json
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-06-29 16:20:27.000000000 Z
@@ -344,3 +351,17 @@ tools:
     detected_date: Nov 23
     severity: moderate
     first_patched: 2.9.13
+- name: yup
+  description: Dead simple Object schema validation
+  package_url: https://www.npmjs.com/yup
+  version: 0.32.11
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17215/default_37d9ccc57ae4d32e7ff46614e4f8bb2c4ddc7964.png
+  detection_source_url: https://github.com/hicmtrex/TypeShop-Frontend/blob/main/package-lock.json
+  detection_source: package.json
+  last_updated_by: Firstname Lastname
+  last_updated_on: 2022-06-29 16:20:27.000000000 Z
