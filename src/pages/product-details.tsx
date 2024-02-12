@@ -24,6 +24,7 @@ import { getProductById } from "../redux/products/slice-details";
 import authAxios from "../utils/auth-axios";
 import { setError } from "../utils/error";
 import { formatCurrencry, getDate } from "../utils/helper";
+import ImageLazy from "../components/UI/lazy-image";
 
 const ProductDetails = () => {
   const dispatch = useAppDispatch();
@@ -70,16 +71,17 @@ const ProductDetails = () => {
           <Row>
             <Col md={7}>
               <Card className="shadow">
-                <Image
-                  className="p-2 align-self-center"
-                  rounded
-                  src={product?.image}
-                  style={{
-                    width: "500px",
-                    height: "480px",
-                    objectFit: "contain",
-                  }}
-                />
+                <div className="d-flex justify-content-center">
+                  <ImageLazy
+                    imageUrl={product?.image}
+                    style={{
+                      width: "500px",
+                      height: "480px",
+                      objectFit: "contain",
+                    }}
+                    className="p-2 align-self-center"
+                  />
+                </div>
               </Card>
             </Col>
             <Col md={5}>

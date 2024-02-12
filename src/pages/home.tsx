@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import DefaultLayout from '../components/layouts/default-layout';
-import ProductCard from '../components/product-card';
-import Loader from '../components/UI/loader';
-import { useAppDispatch, useAppSelector } from '../redux';
-import { getProducts } from '../redux/products/slice-list';
+import { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import DefaultLayout from "../components/layouts/default-layout";
+import ProductCard from "../components/product-card";
+import Loader from "../components/UI/loader";
+import { useAppDispatch, useAppSelector } from "../redux";
+import { getProducts } from "../redux/products/slice-list";
+import { trackWindowScroll } from "react-lazy-load-image-component";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +18,7 @@ const HomePage = () => {
   return (
     <DefaultLayout>
       <Container>
-        <h2 style={{ color: '#e03a3c' }} className='mt-3'>
+        <h2 style={{ color: "#e03a3c" }} className="mt-3">
           Least Products
         </h2>
         {loading || !products ? (
@@ -36,4 +37,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default trackWindowScroll(HomePage);

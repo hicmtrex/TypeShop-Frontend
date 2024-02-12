@@ -2,6 +2,7 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { formatCurrencry } from "../utils/helper";
 import { ReviewTypes } from "../utils/interfaces";
+import ImageLazy from "./UI/lazy-image";
 
 export type Product = {
   _id: number | string;
@@ -32,15 +33,15 @@ const ProductCard = ({ product }: Props) => {
       }}
     >
       <Link to={`/products/${product._id}`}>
-        <Card.Img
-          src={product.image}
-          variant="top"
+        <ImageLazy
+          imageUrl={product.image}
           style={{
             height: "200px",
             width: "250px",
             objectFit: "contain",
           }}
         />
+
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title className="mb-4">
             <span className="fs-2">{product.name}</span>
