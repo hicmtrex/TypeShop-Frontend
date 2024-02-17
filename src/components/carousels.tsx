@@ -13,7 +13,7 @@ const Carousels = () => {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item className="carsouel__item">
         <ImageLazy
-          className="lazy-carousel d-block w-full"
+          className="lazy-carousel"
           style={{ width: "1600px" }}
           imageUrl="https://cdn.shopify.com/s/files/1/2301/4381/files/MSI_BANNER_1080x.jpg?v=1641895460"
         />
