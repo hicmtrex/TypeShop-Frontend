@@ -1,6 +1,6 @@
-@import '@webpixels/css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css');
+@import "@webpixels/css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
 
 * {
   box-sizing: border-box;
@@ -10,7 +10,7 @@
 
 body {
   background: #f1f1f1 !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -31,8 +31,8 @@ a {
   margin: 10px 0;
 }
 
-.carsouel__item img {
-  height: 50rem;
+.carsouel__item .lazy-carousel {
+  height: 38rem;
 }
 
 .nav-link span {
@@ -56,7 +56,7 @@ a {
 
 @media (max-height: 760px) {
   .carsouel__item img {
-    height: 15rem;
+    height: 12rem;
   }
 }
 
