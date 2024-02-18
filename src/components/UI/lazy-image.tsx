@@ -11,6 +11,7 @@ const ImageLazy = ({ className, imageUrl, style }: Props) => {
     <LazyLoadImage
       style={style}
       src={imageUrl}
+      loading="lazy"
       //    width={width}
       className={className}
       // height={height}

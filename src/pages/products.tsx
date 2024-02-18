@@ -1,5 +1,5 @@
 //test
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   Row,
   Container,
@@ -8,13 +8,14 @@ import {
   Form,
   ListGroup,
   FormSelect,
-} from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import DefaultLayout from '../components/layouts/default-layout';
-import ProductCard from '../components/product-card';
-import Paginate from '../components/UI/paginate';
-import { useAppDispatch, useAppSelector } from '../redux';
-import { getFilterProducts } from '../redux/products/search-list';
+} from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import DefaultLayout from "../components/layouts/default-layout";
+import ProductCard from "../components/product-card";
+import Paginate from "../components/UI/paginate";
+import { useAppDispatch, useAppSelector } from "../redux";
+import { getFilterProducts } from "../redux/products/search-list";
+import { trackWindowScroll } from "react-lazy-load-image-component";
 
 const Products = () => {
   const params = useParams();
@@ -22,17 +23,17 @@ const Products = () => {
     (state) => state.productFilter
   );
   const dispatch = useAppDispatch();
-  const [brand, setBrand] = useState<string>('');
-  const [category, setCategory] = useState<string>('');
-  const [search, setSearch] = useState<string>('');
+  const [brand, setBrand] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
   const keyword = params.keyword;
 
   const pageNumber = params.pageNumber || 1;
 
   const reset = () => {
-    setBrand('');
-    setCategory('');
-    setSearch('');
+    setBrand("");
+    setCategory("");
+    setSearch("");
   };
 
   useEffect(() => {
@@ -46,22 +47,22 @@ const Products = () => {
       <Container>
         <Row>
           <Col lg={3}>
-            <h2 className='py-4'>Filter</h2>
-            <Card className='shadow p-3'>
-              <ListGroup variant='flush'>
+            <h2 className="py-4">Filter</h2>
+            <Card className="shadow p-3">
+              <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h4 className='mb-2'>Category</h4>
+                  <h4 className="mb-2">Category</h4>
                   <FormSelect
-                    defaultValue={'All'}
+                    defaultValue={"All"}
                     onChange={(e: any) => {
-                      if (e.target.value === 'All') {
+                      if (e.target.value === "All") {
                         reset();
                       } else {
                         setCategory(e.target.value);
                       }
                     }}
                   >
-                    <option value='All'>All</option>
+                    <option value="All">All</option>
                     All
                     {categories.map((categorie: any) => (
                       <option value={categorie} key={categorie}>
@@ -71,18 +72,18 @@ const Products = () => {
                   </FormSelect>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <h4 className='mb-2'>Brand</h4>
+                  <h4 className="mb-2">Brand</h4>
                   <FormSelect
-                    defaultValue={'All'}
+                    defaultValue={"All"}
                     onChange={(e: any) => {
-                      if (e.target.value === 'All') {
+                      if (e.target.value === "All") {
                         reset();
                       } else {
                         setBrand(e.target.value);
                       }
                     }}
                   >
-                    <option value='All'>All</option>
+                    <option value="All">All</option>
                     All
                     {brands.map((brand: any) => (
                       <option value={brand} key={brand}>
@@ -97,18 +98,18 @@ const Products = () => {
 
           <Col lg={9}>
             <Row>
-              <div className='col-md-6 pb-4'>
-                <div className='d-flex'>
+              <div className="col-md-6 pb-4">
+                <div className="d-flex">
                   <Form.Control
                     onChange={(e: any) => setSearch(e.target.value)}
-                    className='me-2'
-                    placeholder='Search...'
+                    className="me-2"
+                    placeholder="Search..."
                     value={search}
                   />
                 </div>
               </div>
             </Row>
-            <Row style={{ minHeight: '80vh' }}>
+            <Row style={{ minHeight: "80vh" }}>
               {products.map((product) => (
                 <Col lg={4} md={6} xs={12} key={product._id}>
                   <ProductCard product={product} />
@@ -120,7 +121,7 @@ const Products = () => {
         <Paginate
           pages={pages}
           page={page}
-          keyword={keyword ? keyword : ''}
+          keyword={keyword ? keyword : ""}
           isAdmin={false}
         />
       </Container>
@@ -128,4 +129,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default trackWindowScroll(Products);
