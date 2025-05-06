@@ -2,7 +2,7 @@ repo_name: hicmtrex/TypeShop-Frontend
 report_id: ffe31342850035f1657c88fc916329c4
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T08:17:44+00:00'
+timestamp: '2024-02-29T19:09:22+00:00'
 requested_by: hicmtrex
 provider: github
 branch: main
@@ -337,6 +337,13 @@ tools:
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-07-04 00:57:11.000000000 Z
   vulnerabilities:
+  - name: Vite dev server option `server.fs.deny` can be bypassed when hosted on case-insensitive
+      filesystem
+    cve_id: CVE-2024-23331
+    cve_url: https://github.com/advisories/GHSA-c24v-8rfc-w8vw
+    detected_date: Jan 20
+    severity: high
+    first_patched: 2.9.17
   - name: Vite Server Options (server.fs.deny) can be bypassed using double forward-slash
       (//)
     cve_id: CVE-2023-34092
